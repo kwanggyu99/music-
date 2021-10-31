@@ -14,11 +14,11 @@
 깃허브 오픈소스로 현재 개발 중 이다.
 
 
-[1](https://github.com/steven2358/Shazam-Matlab)  
+[1](https://github.com/steven2358/Shazam-Matlab)  https://github.com/steven2358/Shazam-Matlab
 2003년 샤잠 개발 당시 MATLAB언어로 짜진 프로그램  
 
 
-[2](https://github.com/shazam)  
+[2](https://github.com/shazam)  https://github.com/shazam
 현재 샤잠 관련 깃허브
 
 ## 스펙트럼 활용
@@ -50,3 +50,7 @@ sim_df.head()
  ``` 
 가지고 있는 데이터 베이스에서 현재 음악과 유사도 높은 것을 추천
 
+## 기술 
+샤잠 MATLAB-2003 참고
+샤잠 현재 깃허브 참고
+파이썬 데이터 분석 및 머신 러닝
