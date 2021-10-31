@@ -1,0 +1,27 @@
+import pandas as pd
+df = pd.read_csv('데이터 주소')
+df.head()
+# 데이터 불러오기
+
+X = df.drop(columns=['filename','length','label']) 
+y = df['label'] 
+scaler = sklearn.preprocessing.MinMaxScaler()
+np_scaled = scaler.fit_transform(X)
+X = pd.DataFrame(np_scaled, columns=X.columns)
+X.head()
+# 전처리
+
+from sklearn.model_selection import train_test_split
+X_train , X_test , y_train, y_test = train_test_split(X,y , test_size=0.2, random_state=2021)
+print(X_train.shape, y_train.shape)
+print(X_test.shape, y_test.shape)
+# 데이터셋 분할
+
+rom xgboost import XGBClassifier 
+from sklearn.metrics import accuracy_score
+xgb = XGBClassifier(n_estimators=1000, learning_rate=0.05)
+xgb.fit(X_train, y_train) 
+y_preds = xgb.predict(X_test) 
+print('Accuracy: %.2f' % accuracy_score(y_test,y_preds))
+# 학습 및 검증, xgboost 모델이 효율이 좋음, 정확도 0.88
+
