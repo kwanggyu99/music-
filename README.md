@@ -32,7 +32,7 @@
 python Librosa 라이브러리 활용
 ``` 
   import librosa
-  y , sr = librosa.load('Data/genres_original/reggae/reggae.00036.wav') 
+  y , sr = librosa.load('데이터 주소') 
   print(len(y))
   print('Sampling rate (Hz): %d' %sr)
   print('Audio length (seconds): %.2f' % (len(y) / sr)) 
