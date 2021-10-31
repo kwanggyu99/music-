@@ -1,0 +1,21 @@
+df_30 = pd.read_csv('데이터 주소', index_col='filename')
+labels = df_30[['label']]
+df_30 = df_30.drop(columns=['length','label'])
+df_30_scaled = sklearn.preprocessing.scale(df_30)  
+df_30 = pd.DataFrame(df_30_scaled, columns=df_30.columns)
+df_30.head()
+# 데이터 로드
+
+from sklearn.metrics.pairwise import cosine_similarity
+similarity = cosine_similarity(df_30)   
+sim_df = pd.DataFrame(similarity, index=labels.index, columns=labels.index)
+sim_df.head()
+# 유사도 비교, 유사도가 1에 가까울 수록 비슷
+
+
+def find_similar_songs(name, n=5):
+  series = sim_df[name].sort_values(ascending=False)
+  series = series.drop(name)
+  return series.head(n).to_frame()
+find_similar_songs('노래파일이름')
+# 유사한 음악 추천
