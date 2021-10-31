@@ -1,0 +1,33 @@
+import librosa
+
+y , sr = librosa.load('데이터 주소') 
+
+print(y)
+print(len(y))
+print('Sampling rate (Hz): %d' %sr)
+print('Audio length (seconds): %.2f' % (len(y) / sr)) 
+# 오디오 파일 로드, 음악의 길이
+
+import IPython.display as ipd
+ipd.Audio(y, rate=sr)
+#음악 버튼 재생
+
+mport matplotlib.pyplot as plt
+import librosa.display
+
+plt.figure(figsize =(16,6))
+librosa.display.waveplot(y=y,sr=sr)
+plt.show()
+#음파 그래프
+
+DB = librosa.amplitude_to_db(D, ref=np.max) 
+plt.figure(figsize=(16,6))
+librosa.display.specshow(DB,sr=sr, hop_length=512, x_axis='time', y_axis='log')
+plt.colorbar()
+plt.show()
+# 주파수 스펙트럼 
+
+tempo , _ = librosa.beat.beat_track(y,sr=sr)     
+print(tempo)
+#오디오 bpm추출
+
